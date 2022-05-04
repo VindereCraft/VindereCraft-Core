@@ -1,0 +1,8 @@
+name: VindereCraft-Core
+version: '${project.version}'
+main: vinderecraft.core.Core
+api-version: 1.18
+prefix: VC CORE
+load: STARTUP
+authors: [ SpriteV1 ]
+description: Controller for VindereCrafts custom spigot plugins.
