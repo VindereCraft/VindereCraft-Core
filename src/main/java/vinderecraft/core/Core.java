@@ -42,7 +42,7 @@ public final class Core extends JavaPlugin {
     // Runs when the plugin is disabled
     @Override
     public void onDisable () {
-        // Resets global variables to null on disable
+        // Resets global variables to null on disable (maybe it helps?)
         debug = null;
         // Sends message to the console advising plugin is disabled
         getServer().getConsoleSender().sendMessage("[VC CORE] Plugin disabled.");

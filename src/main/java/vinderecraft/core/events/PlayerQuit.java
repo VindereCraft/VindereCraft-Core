@@ -16,7 +16,7 @@ public class PlayerQuit implements Listener {
         this.core = core;
     }
 
-    // Runs when a player quits
+    // Runs when a player quits/leaves
     @EventHandler
     public void onPlayerQuit (PlayerQuitEvent e) {
         if (core.debug) { core.getServer().getConsoleSender().sendMessage("[VC CORE] [DEBUG] Player " + e.getPlayer().getName() + " left the server."); }

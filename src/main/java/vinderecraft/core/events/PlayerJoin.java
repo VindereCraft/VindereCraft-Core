@@ -18,7 +18,7 @@ public class PlayerJoin implements Listener {
         this.core = core;
     }
 
-    // Runs when a player joins
+    // Runs when a player joins/loads
     @EventHandler
     public void onPlayerJoin (PlayerJoinEvent e) {
         if (core.debug) { core.getServer().getConsoleSender().sendMessage("[VC CORE] [DEBUG] Player " + e.getPlayer().getName() + " joined the server."); }

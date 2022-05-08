@@ -5,4 +5,4 @@ api-version: 1.18
 prefix: VC CORE
 load: STARTUP
 authors: [ SpriteV1 ]
-description: Controller for VindereCrafts custom spigot plugins.
+description: Controller for VindereCraft custom spigot plugins.

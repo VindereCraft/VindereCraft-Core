@@ -89,7 +89,7 @@ public class ConfigManager {
         } else return 0;
     }
 
-    // Used to get an instance of a FileConfiguration instance created earlier
+    // Used to get an instance of a FileConfiguration instance created earlier on
     public FileConfiguration getConfig (String config) {
         // Checks to see which FileConfiguration needs to be retrieved
         if (config.equalsIgnoreCase("primary")) {

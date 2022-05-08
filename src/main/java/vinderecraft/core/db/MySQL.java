@@ -1,5 +1,5 @@
 package vinderecraft.core.db;
 
 public class MySQL {
-    // TODO MYSQL Database connection logic
+    // TODO MYSQL Database connection logic here
 }
