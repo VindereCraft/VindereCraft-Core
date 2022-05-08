@@ -15,5 +15,5 @@ log-data-storage-method: 'FLATFILE'
 #     ADMINISTRATIVE
 #  - - - - - - - - - - -
 #
-# Display additional debug messages for troubleshooting and bug-fixing.
+# Display additional debug messages for troubleshooting and bug-fixing, disabled by default.
 verbose-output: false

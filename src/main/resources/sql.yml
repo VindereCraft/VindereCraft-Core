@@ -2,3 +2,5 @@ host:
 port:
 user:
 password:
+tables:
+  player-data:
