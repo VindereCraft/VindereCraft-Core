@@ -1,0 +1,1 @@
+Core Plugin as well as API for other VindereCraft plugins.

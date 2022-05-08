@@ -1,0 +1,19 @@
+#  - - - - - - - - - - - - - - -
+#     STORAGE AND PLUGIN DATA
+#  - - - - - - - - - - - - - - -
+#
+# Choose your method of player data storage.
+# Options: [ MYSQL, MONGODB ]
+player-data-storage-method: 'MYSQL'
+#
+# Choose your method of log data storage.
+# Options: [ MYSQL, MONGODB, FLATFILE ]
+log-data-storage-method: 'FLATFILE'
+#
+#
+#  - - - - - - - - - - -
+#     ADMINISTRATIVE
+#  - - - - - - - - - - -
+#
+# Display additional debug messages for troubleshooting and bug-fixing.
+verbose-output: false
