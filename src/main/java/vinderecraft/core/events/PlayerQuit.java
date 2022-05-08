@@ -1,36 +1,34 @@
 package vinderecraft.core.events;
 
-import vinderecraft.core.Core;
-
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
-
 import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
+import vinderecraft.core.Core;
 
-public class PlayerJoin implements Listener {
+public class PlayerQuit implements Listener {
 
     // Allows access to 'vinderecraft.core.Core.java'
     private final Core core;
-    public PlayerJoin (Core core) {
+    public PlayerQuit (Core core) {
         this.core = core;
     }
 
-    // Runs when a player joins
+    // Runs when a player quits
     @EventHandler
-    public void onPlayerJoin (PlayerJoinEvent e) {
-        if (core.debug) { core.getServer().getConsoleSender().sendMessage("[VC CORE] [DEBUG] Player " + e.getPlayer().getName() + " joined the server."); }
-        TextComponent joinMessage = Component.text("[", TextColor.color(87, 115, 153))
-                .append(Component.text("+",
+    public void onPlayerQuit (PlayerQuitEvent e) {
+        if (core.debug) { core.getServer().getConsoleSender().sendMessage("[VC CORE] [DEBUG] Player " + e.getPlayer().getName() + " left the server."); }
+        TextComponent quitMessage = Component.text("[", TextColor.color(87, 115, 153))
+                .append(Component.text("-",
                         TextColor.color(189, 213, 234)))
                 .append(Component.text("] ",
                         TextColor.color(87, 115, 153)))
                 .append(Component.text(e.getPlayer().getName(),
                         TextColor.color(247, 247, 255)))
-                .append(Component.text(" has joined.",
+                .append(Component.text(" has left.",
                         TextColor.color(189, 213, 234)));
-        e.joinMessage(joinMessage);
+        e.quitMessage(quitMessage);
     }
 }

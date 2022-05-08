@@ -2,6 +2,7 @@ package vinderecraft.core;
 
 // VindereCraft Imports
 import vinderecraft.core.events.PlayerJoin;
+import vinderecraft.core.events.PlayerQuit;
 import vinderecraft.core.util.ConfigManager;
 
 // Bukkit Imports
@@ -30,6 +31,7 @@ public final class Core extends JavaPlugin {
 
         // Registers event handlers.
         getServer().getPluginManager().registerEvents(new PlayerJoin(this), this);
+        getServer().getPluginManager().registerEvents(new PlayerQuit(this), this);
         // Sends debug message
         if (debug) { getServer().getConsoleSender().sendMessage("[VC CORE] [DEBUG] Event handlers successfully registered."); }
 
