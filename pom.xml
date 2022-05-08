@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>vinderecraft</groupId>
-    <artifactId>core</artifactId>
-    <version>1.0-vanilla</version>
+    <artifactId>vc-core</artifactId>
+    <version>0.0.1-alpha</version>
     <packaging>jar</packaging>
 
     <name>VindereCraft Core</name>
