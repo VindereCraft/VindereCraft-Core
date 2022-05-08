@@ -6,7 +6,7 @@
 
     <groupId>vinderecraft</groupId>
     <artifactId>vc-core</artifactId>
-    <version>0.0.1d</version>
+    <version>0.0.2d</version>
     <packaging>jar</packaging>
 
     <name>VindereCraft Core</name>
