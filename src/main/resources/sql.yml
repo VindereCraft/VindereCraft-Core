@@ -1,9 +1,11 @@
 # VindereCraft Core v0.0.2d
 # Developed by Robert Williams
 #
-host:
-port:
-user:
-password:
-tables:
-  player-data:
+mysql:
+  host: ''
+  port: ''
+  database: ''
+  user: ''
+  password: ''
+  tables:
+    player-data: ''

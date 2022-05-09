@@ -21,8 +21,10 @@ public class ConfigManager {
     private FileConfiguration primaryFileConfig;
     private File SQLFile;
     private FileConfiguration SQLFileConfig;
+    private File chatFile;
+    private FileConfiguration chatFileConfig;
 
-    // Method to see if configuration files have been created and also loads them.
+    // Method to see if configuration files have been created and also loads them
     public void initialize () {
         File dir = core.getDataFolder();
 
@@ -42,7 +44,9 @@ public class ConfigManager {
         // Instantiates Files
         primaryFile = new File(dir, "config.yml");
         SQLFile = new File(dir, "sql.yml");
-        // Checks to see if config files already exist in the plugin directory. If not, it creates them.
+        chatFile = new File(dir, "chat.yml");
+
+        // Creates 'config.yml' if not already done so and loads to memory
         if (!primaryFile.exists()) {
             core.saveResource("config.yml", false);
             primaryFileConfig = YamlConfiguration.loadConfiguration(primaryFile);
@@ -52,6 +56,7 @@ public class ConfigManager {
             core.getServer().getConsoleSender().sendMessage("[VC CORE] config.yml loaded.");
         }
 
+        // Creates 'sql.yml' if not already done so and loads to memory
         if (!SQLFile.exists()) {
             core.saveResource("sql.yml", false);
             SQLFileConfig = YamlConfiguration.loadConfiguration(SQLFile);
@@ -59,6 +64,16 @@ public class ConfigManager {
         } else {
             SQLFileConfig = YamlConfiguration.loadConfiguration(SQLFile);
             core.getServer().getConsoleSender().sendMessage("[VC CORE] sql.yml loaded.");
+        }
+
+        // Creates 'chat.yml' if not already done so and loads to memory
+        if (!chatFile.exists()) {
+            core.saveResource("chat.yml", false);
+            chatFileConfig = YamlConfiguration.loadConfiguration(chatFile);
+            core.getServer().getConsoleSender().sendMessage("[VC CORE] chat.yml created using default values.");
+        } else {
+            chatFileConfig = YamlConfiguration.loadConfiguration(chatFile);
+            core.getServer().getConsoleSender().sendMessage("[VC CORE] chat.yml loaded.");
         }
     }
 
@@ -68,6 +83,8 @@ public class ConfigManager {
             return (String) primaryFileConfig.get(datapath);
         } else if (config.equalsIgnoreCase("sql")) {
             return (String) SQLFileConfig.get(datapath);
+        } else if (config.equalsIgnoreCase("chat")) {
+            return (String) chatFileConfig.get(datapath);
         } else return null;
     }
 
@@ -77,6 +94,8 @@ public class ConfigManager {
             return  primaryFileConfig.getBoolean(datapath);
         } else if (config.equalsIgnoreCase("sql")) {
             return SQLFileConfig.getBoolean(datapath);
+        } else if (config.equalsIgnoreCase("chat")) {
+            return chatFileConfig.getBoolean(datapath);
         } else return null;
     }
 
@@ -86,6 +105,8 @@ public class ConfigManager {
             return (int) primaryFileConfig.getInt(datapath);
         } else if (config.equalsIgnoreCase("sql")) {
             return (int) SQLFileConfig.getInt(datapath);
+        } else if (config.equalsIgnoreCase("chat")) {
+            return (int) chatFileConfig.getInt(datapath);
         } else return 0;
     }
 
@@ -96,8 +117,9 @@ public class ConfigManager {
             return primaryFileConfig;
         } else if (config.equalsIgnoreCase("sql")) {
             return SQLFileConfig;
-        }
-        return null;
+        } else if (config.equalsIgnoreCase("chat")) {
+            return chatFileConfig;
+        } else return null;
     }
 
     // Used to save any changes to a configuration file
@@ -118,6 +140,14 @@ public class ConfigManager {
                 if (core.debug) { core.getServer().getConsoleSender().sendMessage("[VC CORE] [DEBUG] sql.yml saved."); }
             } catch (IOException e) {
                 core.getServer().getConsoleSender().sendMessage("[VC CORE] [ERROR] sql.yml was not saved.");
+            }
+        } else if (config.equalsIgnoreCase("chat")) {
+            try {
+                chatFileConfig.save(chatFile);
+                // Sends debug message
+                if (core.debug) { core.getServer().getConsoleSender().sendMessage("[VC CORE] [DEBUG] chat.yml saved."); }
+            } catch (IOException e) {
+                core.getServer().getConsoleSender().sendMessage("[VC CORE] [ERROR] chat.yml was not saved.");
             }
         }
     }

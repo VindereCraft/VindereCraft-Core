@@ -6,12 +6,12 @@
 #  - - - - - - - - - - - - - - -
 #
 # Choose your method of player data storage.
-# Options: [ MYSQL, MONGODB ]
+# Options: [ MYSQL ]
 player-data-storage-method: 'MYSQL'
 #
 # Choose your method of log data storage.
-# Options: [ MYSQL, MONGODB, FLATFILE ]
-log-data-storage-method: 'FLATFILE'
+# Options: [ MYSQL ]
+log-data-storage-method: 'MYSQL'
 #
 #
 #  - - - - - - - - - - -

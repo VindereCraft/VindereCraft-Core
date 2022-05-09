@@ -9,3 +9,4 @@ prefix: VC CORE
 load: STARTUP
 authors: [ SpriteV1 ]
 description: Controller for VindereCraft custom spigot plugins.
+loadbefore: [ VindereCraft-Chat ]
