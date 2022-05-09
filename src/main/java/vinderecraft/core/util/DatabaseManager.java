@@ -33,4 +33,34 @@ public class DatabaseManager {
             mySQL.createPlayerRecord(player, core);
         }
     }
+    public void removePlayerRecord(String storageMethod, Core core, Player player) {
+        // Runs if storageMethod is "MYSQL"
+        if (storageMethod.equalsIgnoreCase("MYSQL")) {
+            mySQL.removePlayerRecord(player, core);
+        }
+    }
+    public void updatePlayerRecordString(String storageMethod, Core core, Player player, String field, String data) {
+        // Runs if storageMethod is "MYSQL"
+        if (storageMethod.equalsIgnoreCase("MYSQL")) {
+            mySQL.updatePlayerRecordString(player, core, field, data);
+        }
+    }
+    public void updatePlayerRecordInt(String storageMethod, Core core, Player player, String field, int data) {
+        // Runs if storageMethod is "MYSQL"
+        if (storageMethod.equalsIgnoreCase("MYSQL")) {
+            mySQL.updatePlayerRecordInt(player, core, field, data);
+        }
+    }
+    public String getPlayerRecordString(String storageMethod, Core core, Player player, String field) {
+        // Runs if storageMethod is "MYSQL"
+        if (storageMethod.equalsIgnoreCase("MYSQL")) {
+            return mySQL.getPlayerRecordString(player, core, field);
+        } else return null;
+    }
+    public int getPlayerRecordInt(String storageMethod, Core core, Player player, String field) {
+        // Runs if storageMethod is "MYSQL"
+        if (storageMethod.equalsIgnoreCase("MYSQL")) {
+            return mySQL.getPlayerRecordInt(player, core, field);
+        } else return 0;
+    }
 }
