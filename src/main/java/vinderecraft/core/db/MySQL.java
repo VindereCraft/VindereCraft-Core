@@ -1,7 +1,9 @@
 package vinderecraft.core.db;
 
+// VindereCraft Imports
 import vinderecraft.core.Core;
 
+// SQL Imports
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

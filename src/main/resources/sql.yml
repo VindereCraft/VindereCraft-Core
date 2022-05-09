@@ -1,6 +1,11 @@
 # VindereCraft Core v0.0.2d
 # Developed by Robert Williams
 #
+#  - - - - - - - - - - - - -
+#     SQL STORAGE DETAILS
+#  - - - - - - - - - - - - -
+#
+# Enter MySQL server connection details.
 mysql:
   host: ''
   port: ''

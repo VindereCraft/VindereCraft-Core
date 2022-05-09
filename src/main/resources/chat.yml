@@ -1,3 +1,11 @@
+# VindereCraft Core v0.0.2d
+# Developed by Robert Williams
+#
+#  - - - - - - - - - - - - -
+#     CHAT FORMATTING
+#  - - - - - - - - - - - - -
+#
+# Set the colors for the appropriate chat formatting.
 color:
   text-color:
     r: 189

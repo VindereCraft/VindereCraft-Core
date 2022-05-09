@@ -1,16 +1,18 @@
 package vinderecraft.core.util;
 
+// VindereCraft Imports
 import vinderecraft.core.Core;
 
+// Bukkit Imports
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
+// Java Imports
 import java.io.File;
 import java.io.IOException;
 
 public class ConfigManager {
-
-    // Allows vinderecraft.core.Core to create an instance of this class.
+    // Passes vinderecraft.core.Core through instance of this class.
     private final Core core;
     public ConfigManager (Core core) {
         this.core = core;
@@ -32,6 +34,8 @@ public class ConfigManager {
         if (!core.getDataFolder().exists()){
             boolean directoryCreated;
             directoryCreated = dir.mkdirs();
+
+            // If plugin directory doesn't exist, make it
             if (directoryCreated) {
                 core.getServer().getConsoleSender().sendMessage("[VC CORE] Created configuration directory.");
             } else {

@@ -1,14 +1,13 @@
 package vinderecraft.core;
 
 // VindereCraft Imports
-import vinderecraft.core.db.MySQL;
 import vinderecraft.core.events.PlayerJoin;
 import vinderecraft.core.events.PlayerQuit;
+import vinderecraft.core.util.DatabaseManager;
 import vinderecraft.core.util.ConfigManager;
 
 // Bukkit Imports
 import org.bukkit.plugin.java.JavaPlugin;
-import vinderecraft.core.util.DatabaseManager;
 
 public final class Core extends JavaPlugin {
     // Global instances
@@ -26,22 +25,21 @@ public final class Core extends JavaPlugin {
         // Updates global variables
         debug = Config.readBoolean("primary", "verbose-output");
         playerDataStorageMethod = Config.readString("primary", "player-data-storage-method");
-        if (playerDataStorageMethod.equalsIgnoreCase("MYSQL")) {  }
+
         // Sends debug messages
         if (debug) {
             getServer().getConsoleSender().sendMessage("[VC CORE] Debug messages enabled.");
             getServer().getConsoleSender().sendMessage("[VC CORE] [DEBUG] Configuration successfully loaded.");
         }
 
-        // TODO initialize database specified in 'config.yml' using 'util/DatabaseManager.java'
-
         // Registers event handlers.
         getServer().getPluginManager().registerEvents(new PlayerJoin(this), this);
         getServer().getPluginManager().registerEvents(new PlayerQuit(this), this);
-        // Sends debug message
+        // Sends debug messages
         if (debug) { getServer().getConsoleSender().sendMessage("[VC CORE] [DEBUG] Event handlers successfully registered."); }
         if (debug) { getServer().getConsoleSender().sendMessage("[VC CORE] [DEBUG] Player Data Storage Method: " + Config.readString("primary", "player-data-storage-method")); }
 
+        // Connects to database service specified in 'config.yml'
         DB.connect(playerDataStorageMethod, this);
 
         // Sends message to the console advising plugin is enabled

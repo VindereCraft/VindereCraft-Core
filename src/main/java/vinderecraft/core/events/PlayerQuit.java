@@ -9,7 +9,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 public class PlayerQuit implements Listener {
-
     // Allows access to 'vinderecraft.core.Core.java'
     private final Core core;
     public PlayerQuit (Core core) {
@@ -19,6 +18,7 @@ public class PlayerQuit implements Listener {
     // Runs when a player quits/leaves
     @EventHandler
     public void onPlayerQuit (PlayerQuitEvent e) {
+        // Sends debug message
         if (core.debug) { core.getServer().getConsoleSender().sendMessage("[VC CORE] [DEBUG] Player " + e.getPlayer().getName() + " left the server."); }
     }
 }
