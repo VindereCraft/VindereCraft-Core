@@ -24,7 +24,14 @@ public final class Core extends JavaPlugin {
         Config.initialize();
         // Updates global variables
         debug = Config.readBoolean("primary", "verbose-output");
+
+        // Retrieves player data storage method.
         playerDataStorageMethod = Config.readString("primary", "player-data-storage-method");
+        // Sends debug message.
+        if (debug) { getServer().getConsoleSender().sendMessage("[VC CORE] [DEBUG] Player Data Storage Method: " + Config.readString("primary", "player-data-storage-method")); }
+        // Connects to database service specified in 'config.yml'
+        DB.connect(playerDataStorageMethod, this);
+        DB.buildDatabase(playerDataStorageMethod, this);
 
         // Sends debug messages
         if (debug) {
@@ -37,10 +44,6 @@ public final class Core extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerQuit(this), this);
         // Sends debug messages
         if (debug) { getServer().getConsoleSender().sendMessage("[VC CORE] [DEBUG] Event handlers successfully registered."); }
-        if (debug) { getServer().getConsoleSender().sendMessage("[VC CORE] [DEBUG] Player Data Storage Method: " + Config.readString("primary", "player-data-storage-method")); }
-
-        // Connects to database service specified in 'config.yml'
-        DB.connect(playerDataStorageMethod, this);
 
         // Sends message to the console advising plugin is enabled
         getServer().getConsoleSender().sendMessage("[VC CORE] Plugin enabled.");
@@ -49,6 +52,7 @@ public final class Core extends JavaPlugin {
     // Runs when the plugin is disabled
     @Override
     public void onDisable () {
+        DB.terminate(playerDataStorageMethod, this);
         // Resets global variables to null on disable (maybe it helps?)
         debug = null;
         // Sends message to the console advising plugin is disabled

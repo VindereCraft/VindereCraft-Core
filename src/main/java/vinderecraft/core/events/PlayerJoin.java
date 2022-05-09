@@ -18,6 +18,8 @@ public class PlayerJoin implements Listener {
     // Runs when a player joins/loads
     @EventHandler
     public void onPlayerJoin (PlayerJoinEvent e) {
+        // Creates player record on database if one does not already exist.
+        core.DB.createPlayerRecord(core.playerDataStorageMethod, core, e.getPlayer());
         // Sends debug message
         if (core.debug) { core.getServer().getConsoleSender().sendMessage("[VC CORE] [DEBUG] Player " + e.getPlayer().getName() + " joined the server."); }
     }

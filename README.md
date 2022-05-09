@@ -3,6 +3,7 @@
 ### Foundation for VindereCraft Servers, API for other VindereCraft Plugin
 
 ## New Features
-- None yet.
+- MYSQL database connection which automatically generates tables required to store player data.
+- Automatically creates database entries when a player joins, recording information like UUID and IP address.
 ## Fixes
 - None yet.
