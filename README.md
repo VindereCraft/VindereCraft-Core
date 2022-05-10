@@ -1,5 +1,5 @@
 
-![VindereCraft Core](images/index-readme/vinderecraft-core-0.0.2d-logo.png)
+![VindereCraft Core](images/index-readme/logo-1.png)
 
 # VindereCraft Core (Development Branch for v0.0.2d)
 
