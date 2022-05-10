@@ -1,9 +1,9 @@
 # VindereCraft Core v0.0.2d
 # Developed by Robert Williams
 #
-#  - - - - - - - - - - - - -
-#     SQL STORAGE DETAILS
-#  - - - - - - - - - - - - -
+#  - - - - - - - - - - - - - -
+#     MYSQL STORAGE DETAILS
+#  - - - - - - - - - - - - - -
 #
 # Enter MySQL server connection details.
 mysql:
@@ -14,3 +14,10 @@ mysql:
   password: ''
   tables:
     player-data: ''
+#
+#  - - - - - - - - - - - - - -
+#     SQLITE STORAGE DETAILS
+#  - - - - - - - - - - - - - -
+#
+# Enter SQLirw server connection details.
+sqlite:
