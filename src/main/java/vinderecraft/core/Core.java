@@ -9,6 +9,8 @@ import vinderecraft.core.util.ConfigManager;
 // Bukkit Imports
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.sql.Connection;
+
 public final class Core extends JavaPlugin {
     // Global instances
     public ConfigManager Config = new ConfigManager(this);
@@ -16,6 +18,7 @@ public final class Core extends JavaPlugin {
     // Global variables
     public Boolean debug;
     public String playerDataStorageMethod;
+    public Connection conn;
 
     // Runs when the plugin is enabled
     @Override
@@ -30,8 +33,11 @@ public final class Core extends JavaPlugin {
         // Sends debug message.
         if (debug) { getServer().getConsoleSender().sendMessage("[VC CORE] [DEBUG] Player Data Storage Method: " + Config.readString("primary", "player-data-storage-method")); }
         // Connects to database service specified in 'config.yml'
-        DB.connect(playerDataStorageMethod, this);
-        DB.buildDatabase(playerDataStorageMethod, this);
+
+        if (Config.readString("primary", "player-data-storage-method").equalsIgnoreCase("mysql")) {
+            conn = DB.connectMYSQL(this);
+            if (debug) { getServer().getConsoleSender().sendMessage("[VC CORE] [DEBUG] MySQL database connected."); }
+        }
 
         // Sends debug messages
         if (debug) {
@@ -52,7 +58,10 @@ public final class Core extends JavaPlugin {
     // Runs when the plugin is disabled
     @Override
     public void onDisable () {
-        DB.terminate(playerDataStorageMethod, this);
+        if (Config.readString("primary", "player-data-storage-method").equalsIgnoreCase("mysql")) {
+            DB.terminateSQL(this, this.conn);
+            if (debug) { getServer().getConsoleSender().sendMessage("[VC CORE] [DEBUG] MySQL database disconnected."); }
+        }
         // Resets global variables to null on disable (maybe it helps?)
         debug = null;
         // Sends message to the console advising plugin is disabled

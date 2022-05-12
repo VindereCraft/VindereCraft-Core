@@ -1,5 +1,5 @@
 
-![VindereCraft Core v0.0.2d](images/index-readme/logo-1.png)
+![VindereCraft Core v0.0.2d](images/index-readme/v0.0.2d.png)
 ### The Foundation for Minecraft: Java Edition Servers running Paper
 
 **--[ WARNING ]-->** Keep in mind, this is a DEVELOPMENT BUILD (hence the 'd' following the version) which means it may be unstable. Heck, it may not even load properly. No guarantees!
