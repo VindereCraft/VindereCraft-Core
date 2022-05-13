@@ -23,16 +23,22 @@ public class CoreCmd implements CommandExecutor {
     }
 
     private void getPlugins(CommandSender sender) {
-        TextComponent aboutMsg, coreVersion, chatVersion, nullify;
+        TextComponent aboutMsg, coreVersion, chatVersion;
 
         aboutMsg =
-                net.kyori.adventure.text.Component.text(" Core",
+                net.kyori.adventure.text.Component.text("[",
                                 TextColor.color(
-                                core.Config.readInt("chat", "color.highlight-text-color.r"),
-                                core.Config.readInt("chat", "color.highlight-text-color.g"),
-                                core.Config.readInt("chat", "color.highlight-text-color.b")
+                                core.Config.readInt("chat", "color.dark-text-color.r"),
+                                core.Config.readInt("chat", "color.dark-text-color.g"),
+                                core.Config.readInt("chat", "color.dark-text-color.b")
                                 ))
-                        .append(net.kyori.adventure.text.Component.text(" > ",
+                        .append(net.kyori.adventure.text.Component.text("Core",
+                                TextColor.color(
+                                        core.Config.readInt("chat", "color.highlight-text-color.r"),
+                                        core.Config.readInt("chat", "color.highlight-text-color.g"),
+                                        core.Config.readInt("chat", "color.highlight-text-color.b")
+                                )))
+                        .append(net.kyori.adventure.text.Component.text("> ",
                                 TextColor.color(
                                         core.Config.readInt("chat", "color.dark-text-color.r"),
                                         core.Config.readInt("chat", "color.dark-text-color.g"),
@@ -113,12 +119,8 @@ public class CoreCmd implements CommandExecutor {
                                     )));
         }
 
-        nullify = net.kyori.adventure.text.Component.text("\n");
-
-        sender.sendMessage(nullify);
         sender.sendMessage(aboutMsg);
         sender.sendMessage(coreVersion);
         sender.sendMessage(chatVersion);
-        sender.sendMessage(nullify);
     }
 }
