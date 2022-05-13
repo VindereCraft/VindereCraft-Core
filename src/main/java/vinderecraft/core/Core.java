@@ -1,6 +1,7 @@
 package vinderecraft.core;
 
 // VindereCraft Imports
+import vinderecraft.core.cmd.CoreCmd;
 import vinderecraft.core.events.PlayerJoin;
 import vinderecraft.core.events.PlayerQuit;
 import vinderecraft.core.util.DatabaseManager;
@@ -28,7 +29,7 @@ public final class Core extends JavaPlugin {
         // Updates global variables
         debug = Config.readBoolean("primary", "verbose-output");
 
-        // Retrieves player data storage method.
+        // Retrieves player data storage method
         playerDataStorageMethod = Config.readString("primary", "player-data-storage-method");
         // Sends debug message.
         if (debug) { getServer().getConsoleSender().sendMessage("[VC CORE] [DEBUG] Player Data Storage Method: " + Config.readString("primary", "player-data-storage-method")); }
@@ -45,11 +46,16 @@ public final class Core extends JavaPlugin {
             getServer().getConsoleSender().sendMessage("[VC CORE] [DEBUG] Configuration successfully loaded.");
         }
 
-        // Registers event handlers.
+        // Registers event handlers
         getServer().getPluginManager().registerEvents(new PlayerJoin(this), this);
         getServer().getPluginManager().registerEvents(new PlayerQuit(this), this);
         // Sends debug messages
         if (debug) { getServer().getConsoleSender().sendMessage("[VC CORE] [DEBUG] Event handlers successfully registered."); }
+
+        // Sets command executors
+        this.getCommand("core").setExecutor(new CoreCmd(this));
+        // Sends debug messages
+        if (debug) { getServer().getConsoleSender().sendMessage("[VC CORE] [DEBUG] Command executors successfully registered."); }
 
         // Sends message to the console advising plugin is enabled
         getServer().getConsoleSender().sendMessage("[VC CORE] Plugin enabled.");

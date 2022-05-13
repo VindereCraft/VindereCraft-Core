@@ -14,10 +14,3 @@ mysql:
   password: ''
   tables:
     player-data: ''
-#
-#  - - - - - - - - - - - - - -
-#     SQLITE STORAGE DETAILS
-#  - - - - - - - - - - - - - -
-#
-# Enter SQLirw server connection details.
-sqlite:

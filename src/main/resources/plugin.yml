@@ -10,3 +10,6 @@ load: STARTUP
 authors: [ SpriteV1 ]
 description: Controller for VindereCraft custom spigot plugins.
 loadbefore: [ VindereCraft-Chat ]
+commands:
+  core:
+    description: Administrative command for viewing the version of VindereCraft plugins installed.
